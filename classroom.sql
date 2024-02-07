@@ -57,6 +57,11 @@ INSERT INTO emp(id) VALUES(100);
 
 
 
+
+
+
+
+
 CREATE DATABASE university;
 USE university;
 

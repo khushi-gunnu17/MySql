@@ -78,17 +78,17 @@ CREATE TABLE newTab (
 ## Select in Detail
 used to select any data from the database
 
-#### Basic Syntax
+Basic Syntax =>  
 SELECT col1, col2 FROM table_name;
 
-#### To Select All
+To select All  =>
 > SELECT * FROM table_name;
 
 
 ## WHERE Clause
 To Define some conditions
 
-#### Syntax
+Syntax =>  
 SELECT col1, col2 FROM table_name
 WHERE conditions;
 
@@ -171,7 +171,7 @@ WHERE condition;
 
 - Delete (to delete existing rows)
 
-#### Syntax =
+Syntax => 
 DELETE FROM table_name
 WHERE condition;
 
@@ -200,7 +200,7 @@ MODIFY col_name new_datatype new_constraint;
 
 - Truncate (To delete table's data)  
 
-#### Syntax =
+Syntax =>  
 TRUNCATE TABLE table_name;
 
 
@@ -224,3 +224,117 @@ Join is used to combine rows from two or more tables, based on a related column 
 - Inner Join
 - Outer Join (Left, Right and Full)
 
+
+#### Inner Join
+- Returns records that have matching values in both tables.
+
+Syntax  =>  
+> SELECT column(s)  
+FROM tableA  
+INNER JOIN tableB  
+ON tableA.col_name = tableB.col_name;
+
+
+#### Left Join
+- Returns all records from the left table, and the matched records from the right table.
+
+Syntax =>  
+> SELECT column(s)  
+FROM tableA  
+LEFT JOIN tableB  
+ON tableA.col_name = tableB.col_name;
+
+
+
+#### Right Join
+- Returns all records from the right table, and the matched records from the left table.
+
+Syntax =>  
+> SELECT column(s)  
+FROM tableA as alias  
+RIGHT JOIN tableB  
+ON tableA.col_name = tableB.col_name;
+
+
+#### Full Join
+- Returns all records when there is a match in either left or right table.
+
+Syntax =>  
+> SELECT column(s)  
+FROM tableA as alias  
+LEFT JOIN tableB as alias  
+ON tableA.col_name = tableB.col_name;
+UNION  
+SELECT column(s)  
+FROM tableA as alias  
+RIGHT JOIN tableB as alias  
+ON tableA.col_name = tableB.col_name;
+
+
+LEFT JOIN  
+UNION  
+RIGHT JOIN  
+
+
+#### Left Exclusive Join
+Syntax =>  
+> SELECT column(s)  
+FROM tableA as alias  
+LEFT JOIN tableB as alias  
+ON tableA.col_name = tableB.col_name  
+WHERE tableB.col_name IS NULL;
+
+
+#### Right Exclusive Join
+Syntax =>  
+> SELECT column(s)  
+FROM tableA as alias  
+RIGHT JOIN tableB as alias  
+ON tableA.col_name = tableB.col_name  
+WHERE tableA.col_name IS NULL;
+
+
+#### Self Join
+- It is a regular join but the table is joined with itself.
+- to make out the values from the same table.
+
+Syntax =>  
+
+> SELECT column(s)  
+FROM table as a  
+JOIN table as b  
+ON a.col_name = b.col_name;  
+
+
+## Union
+It is used to combine the result-set of two or more SELECT statements, Gives UNIQUE records.
+
+To use it : 
+
+- every SELECT should have same number of columns.
+- columns must have similar data types.
+- columns in every SELECT should be in same order.
+
+Syntax =>  
+SELECT column(s) FROM tableA  
+UNION   
+SELECT column(s) FROM tableB
+
+- UNION ALL = allows duplicates also.
+
+
+## SQL Sub Queries
+A subquery or inner query or a Nested query is a query within another SQL query.
+
+It involves 2 Select statements.
+
+Syntax =>  
+SELECT column(s)
+FROM table_name
+WHERE col_name operator
+(subquery);
+
+Types of writing SubQueries --->
+- SELECT
+- FROM 
+- WHERE
