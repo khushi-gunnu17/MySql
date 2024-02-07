@@ -1,0 +1,226 @@
+# SQL
+
+## DataTypes in SQL
+- CHAR      (string(0 - 255), can store characters of fixed length.)
+- VARCHAR       (string(0 - 255), can store characters up to given length.)
+- BLOB         (string(0 - 65535), can store binaary large digit.)
+- INT        ( integer (-2147483648 to 2147483647) )
+- TINYINT       (integer(-128 to 127))
+- BIGINT        integer()
+- BIT       (can store x-bit values. x can range from 1 to 64)
+- FLOAT         (Decimal Number - with precision to 23 digits)
+- DOUBLE        (Decimal Number - with 24 to 53 digits)
+- BOOLEAN       (Boolean Values 0 or 1)
+- DATE          (date in format of YYYY-MM-DD ranging from 1000-01-01 to 9999-12-31)
+- YEAR          (year in 4 digits format ranging from 1901 to 2155 )
+- signed and unsigned       ( TINYINT UNSIGNED = RANGE (0 TO 255) )
+
+
+## Types of SQL Commands
+- DDL (Data Definition Language) : create, alter, rename, truncate and drop
+- DQL (Data Query Laguage) : select
+- DML (Data Manipulation Language) : insert, update and delete
+- DCL (Data Control Language) : grant and revoke permission to users
+- TCL (Transaction Control Language) : start transaction, commit, rollback (E)
+
+
+## Keys
+
+### Primary Key
+1. It is a column (or set of columns) in a table that uniquely identifies each row. (a unique id).
+2. There is only 1 PK and it should be NOT null.
+
+### Foreign Key
+1. A foreign key is a column (or set of columns) in a table that refers to the primary key in anothe table.
+2. There can be multiple FKs in a table.
+3. FKs can have duplicate and null values.
+
+
+## Constraints
+SQL Constraints are used to specify rules for data in a table.
+
+- NOT NULL - columns cannot have a null value.
+- UNIQUE - all values in colimn are different.
+- PRIMARY KEY - makes a column unique and not null but used only for one.
+
+- FOREIGN KEY - prevent action that would destroy links between tables
+
+
+CREATE TABLE temp (
+
+    cust_ind INT,
+    FOREIGN KEY (cust_id) references customer(id)
+);
+
+- DEFAULT - sets the default value of a column
+
+salary INT DEFAULT 25000
+
+- CHECK - It can limit the values allowed in a column.
+
+
+CREATE TABLE city (
+
+    id INT PRIMARY KEY,
+    city VARCHAR(50),
+    age INT,
+    CONSTRAINT age_check CHECK (AGE >= 18 AND city == "Delhi")
+);
+
+OR
+
+CREATE TABLE newTab (
+
+    age INT CHECK (age >= 18)
+);
+
+
+## Select in Detail
+used to select any data from the database
+
+#### Basic Syntax
+SELECT col1, col2 FROM table_name;
+
+#### To Select All
+> SELECT * FROM table_name;
+
+
+## WHERE Clause
+To Define some conditions
+
+#### Syntax
+SELECT col1, col2 FROM table_name
+WHERE conditions;
+
+> SELECT * FROM student WHERE marks > 80;
+
+
+
+### Operators in Where Clause
+Using Operators in WHERE
+
+- Arithmetic Operators
+- Comparion Operators
+- Logical Operators : AND, OR, NOT, IN, BETWEEN, ALL, LIKE, ANY
+- Bitwise Operators : & (Bitwise AND), | (Bitwise OR)
+
+
+
+## Limit Clause 
+Sets an upper limit on number of (tuples) rows to be returned.
+
+> SELECT * FROM student LIMIT 3;
+
+
+
+## Order By Clause
+To sort in Ascending Order (ASC) or Descending Order (Desc)
+
+> SELECT * FROM student ORDER BY city ASC;
+
+
+
+## Aggregate Functions
+Aggregate functions perform a calculation on a set of values, and return a single value.
+- COUNT()
+- MAX()
+- MIN()
+- SUM()
+- AVG()
+
+
+
+## Group By Clause
+Groups rows that have the same values into summary rows.  
+It collects data from multiple records and groups the result by one or more column.
+
+Generally we use group by with some aggregation function.
+
+> SELECT city, COUNT(name) FROM student GROUP BY city;
+
+
+
+## Having Clause
+Similar to Where i.e applies some conditions on rows.  
+Used when we want to apply any condition after grouping.
+
+
+
+## General Order
+SELECT column(s)  
+FROM  table_name  
+WHERE condition  
+GROUP BY column(s)  
+HAVING condition  
+ORDER BY column(s) ASC OR DESC;
+
+
+
+
+
+
+
+## Table Related Queries
+
+- Update (to update existing rows)
+
+UPDATE table_name  
+SET col1 = val1, col2 = val2
+WHERE condition;
+
+
+- Delete (to delete existing rows)
+
+#### Syntax =
+DELETE FROM table_name
+WHERE condition;
+
+- Alter (To change the schema)  
+#### Methods with their syntaxes =  
+> ADD Column  =>  
+ALTER TABLE table_name  
+ADD COLUMN column_name datatype constraint;
+
+> DROP Column  =>  
+ALTER TABLE table_name  
+DROP COLUMN column_name;
+
+> RENAME Table  =>  
+ALTER TABLE table_name  
+RENAME TO new_table_name;
+
+> CHANGE column (rename)  =>  
+ALTER TABLE table_name  
+CHANGE COLUMN old_name new_name new_datatype new_constraint;  
+
+> MODIFY column (modify datatype/constraint)  =>  
+ALTER TABLE table_name  
+MODIFY col_name new_datatype new_constraint; 
+
+
+- Truncate (To delete table's data)  
+
+#### Syntax =
+TRUNCATE TABLE table_name;
+
+
+### Cascading Foreign Key
+- On Delete Cascade  
+When we create a foreign key using this option, it deletes the referencing rows in the child table when the referenced row is deleted in the parent table which has a primary key.
+
+- On Update Cascade  
+When we create a foreign key using UPDATE CASCADE the referencing rows are updated in the child table when the referenced row is updated in the parent table which has a primary key.
+
+
+
+
+
+
+
+## Joins In SQL
+Join is used to combine rows from two or more tables, based on a related column between them.
+
+### Types of Joins
+- Inner Join
+- Outer Join (Left, Right and Full)
+
