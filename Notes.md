@@ -338,3 +338,16 @@ Types of writing SubQueries --->
 - SELECT
 - FROM 
 - WHERE
+
+
+
+## MySql Views
+A view is a virtual table based on the result-set of an SQL statement.
+
+Queries -->
+> CREATE VIEW view1 AS  
+SELECT rollno, name FROM students;
+
+> SELECT * FROM view1;
+
+- A view always shows up-to-date data. The database engine recreates the view, every time a user queries it.
