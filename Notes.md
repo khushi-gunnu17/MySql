@@ -1,4 +1,11 @@
 # SQL
+SQL is a programming language used to interact with relational databases.
+
+It is used to perfrm CRUD operations :
+Create 
+Read
+Update
+Delete
 
 ## DataTypes in SQL
 - CHAR      (string(0 - 255), can store characters of fixed length.)
