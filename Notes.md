@@ -54,7 +54,6 @@ SQL Constraints are used to specify rules for data in a table.
 
 
 CREATE TABLE temp (
-
     cust_ind INT,
     FOREIGN KEY (cust_id) references customer(id)
 );
@@ -67,7 +66,6 @@ salary INT DEFAULT 25000
 
 
 CREATE TABLE city (
-
     id INT PRIMARY KEY,
     city VARCHAR(50),
     age INT,

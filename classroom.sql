@@ -41,12 +41,12 @@ CREATE TABLE temp1 (
     name VARCHAR(50),
     age INT,
 	city VARCHAR(30)
+    -- PRIMARY KEY(id, name)	== two fields primary key
 );
--- PRIMARY KEY(id, name)	== two fields primary key
 
 CREATE TABLE emp (
-id INT,
-salary INT DEFAULT 25000
+    id INT,
+    salary INT DEFAULT 25000
 );
 
 INSERT INTO emp(id) VALUES(100); 
