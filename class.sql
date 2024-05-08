@@ -20,6 +20,12 @@ SELECT * FROM E1;
 
 
 
+
+
+
+
+
+
 -- 02.) UNIQUE AND NOT NULL USAGE
 
 USE class;
@@ -37,6 +43,10 @@ INSERT INTO students VALUES
 
 SELECT * FROM students;
 DROP TABLE students;
+
+
+
+
 
 
 
@@ -76,6 +86,9 @@ VALUES
 (2, "Eve", 102);
 
 SELECT * FROM teacher;
+
+
+
 
 
 
@@ -145,6 +158,9 @@ WHERE Name LIKE("%m");
 
 
 
+
+
+
 -- 05.) applying update, delete or drop statements
 
 USE class;
@@ -198,6 +214,10 @@ DROP COLUMN age;
 SELECT * FROM student;
 
 -- DROP TABLE student; 
+
+
+
+
 
 
 
@@ -307,8 +327,13 @@ SELECT * FROM Second;
 
 -- Minus 
 SELECT * FROM First   
-MINUS  
+MINUS
 SELECT * FROM Second;  
+
+
+
+
+
 
 
 
@@ -349,3 +374,142 @@ SELECT count(name), city
 FROM children 
 GROUP BY city 
 HAVING max(marks) > 90;
+
+
+
+
+
+
+
+
+
+
+-- 08.) Practice Queries using Arithmetic Operators, Comparison Operator and logical operators
+
+USE class;
+
+CREATE TABLE children (
+	rollno INT PRIMARY KEY,
+    name VARCHAR(50),
+    marks INT NOT NULL,
+    grade VARCHAR(1),
+    city VARCHAR(20)
+);
+
+INSERT INTO children 
+(rollno, name , marks , grade, city)
+VALUES
+(101, "Anit", 78, "C", "Pune"),
+(102, "Bhumika", 93, "A", "Mumbai"),
+(103, "Chetan", 85, "B", "Mumbai"),
+(104, "Dhruv", 96, "A", "Delhi"),
+(105, "Emanuel", 12, "F", "Delhi"),
+(106, "Farah", 82, "B", "Delhi"); 
+
+-- Logical operators
+SELECT * FROM children 
+WHERE marks > 80 AND city = "Mumbai";
+
+-- Arithmetic operators
+UPDATE children
+SET marks = marks + 1;
+
+-- Comparison operators
+SELECT count(name), city 
+FROM children 
+GROUP BY city 
+HAVING max(marks) > 90;
+
+
+
+
+
+
+
+
+
+-- 09.) Practice Queries using any four String Functions. 
+
+USE class;
+
+CREATE TABLE workers (
+    worker_id INT PRIMARY KEY,
+    full_name VARCHAR(50),
+    dept_id INT NOT NULL,
+    city VARCHAR(50) DEFAULT 'Delhi'
+);
+
+INSERT INTO workers 
+(worker_id, full_name, dept_id, city)
+VALUES
+(1, 'Rajesh Mehta', 302, 'Mumbai'),
+(2, 'Mrinal Mathur', 312, 'Delhi'),
+(3, 'Khush Rathore', 456, "Noida"),
+(4, 'Jayesh Joshi', 324, "Jaipur"),
+(5, 'Kriti Kabra', 324, 'Delhi');
+
+SELECT UPPER(full_name) AS upper_case_name
+FROM workers;
+
+SELECT LOWER(full_name) AS lower_case_name
+FROM workers;
+
+SELECT LEFT(full_name, 6) AS  first_six_characters
+FROM workers;
+
+SELECT full_name , LENGTH(full_name) AS name_length
+FROM workers;
+
+ 
+
+
+
+
+
+
+
+-- 10.) Practice Queries using Numeric Functions.
+
+SELECT ROUND(123.345, 1) AS rounded_value;
+
+SELECT ABS(-45.34) AS abslute_value;
+
+SELECT CEILING(12.34) AS ceiling_value;
+
+SELECT FLOOR(12.34) AS floored_value;
+
+SELECT POWER(12, 2) AS squared_value;
+
+SELECT RAND() * 10 AS random_value;
+
+SELECT MOD(15, 4) as remainder_value;
+
+
+
+
+
+
+
+
+
+
+
+-- 11.) Practice Queries using Date Functions. 
+
+SELECT CURRENT_DATE AS todays_date;
+
+SELECT CURRENT_TIME AS todays_time;
+
+SELECT CURRENT_TIMESTAMP AS timestamp;
+
+SELECT DATE_FORMAT(CURRENT_DATE, '%D %M %Y') AS formatted_date;
+
+SELECT DATE_ADD(CURRENT_DATE, INTERVAL 7 DAY) AS future_date;
+
+SELECT DATEDIFF('2024-05-08', '2004-03-17') AS days_difference;
+
+SELECT YEAR('2024-05-08') AS extracted_year;
+
+SELECT WEEKDAY('2024-05-08') AS weekday_index;
+
+SELECT DAY('2024-05-08') AS extracted_day;
