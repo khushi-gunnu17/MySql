@@ -37,8 +37,8 @@ CREATE TABLE teacher (
 
 INSERT INTO teacher
 VALUES 
-(101, "Adam", 101),
-(102, "Eve", 102);
+(1, "Adam", 101),
+(2, "Eve", 102);
 
 SELECT * FROM teacher;
 
