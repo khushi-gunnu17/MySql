@@ -412,6 +412,8 @@ VALUES
 SELECT * FROM children 
 WHERE marks > 80 AND city = "Mumbai";
 
+SET SQL_SAFE_UPDATES = 0;
+
 -- Arithmetic operators
 UPDATE children
 SET marks = marks + 1;
