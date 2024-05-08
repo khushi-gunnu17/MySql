@@ -75,7 +75,6 @@ CREATE TABLE city (
 OR
 
 CREATE TABLE newTab (
-
     age INT CHECK (age >= 18)
 );
 

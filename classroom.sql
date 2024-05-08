@@ -95,7 +95,7 @@ SELECT * FROM student WHERE marks > 80 AND city = "Mumbai";
 -- OR (to check for one of the conditions to be true)
 SELECT * FROM student WHERE marks > 90 OR  city = "Mumbai";
 
--- BETWEEN (selects for a given range)  
+-- BETWEEN (selects for a given range, also they are inclusive with the values)  
 SELECT * FROM student WHERE marks BETWEEN 80 AND 90;
 
 -- IN (matches any value in the list)
