@@ -196,7 +196,7 @@ ALTER TABLE student
 CHANGE age stu_age INT;
 
 INSERT INTO student
-(rollno, name, marks, grade, city, age)
+(rollno, name, marks, grade, city, stu_age)
 VALUES
 (107, "Khushi", 67, "C", "Jaipur", 100);
 
@@ -207,6 +207,7 @@ VALUES
 
 -- SELECT * FROM students;
 
+-- Truncate only deletes the table's data, whereas drop deletes the entire table.
 -- TRUNCATE TABLE students;
 
 -- DROP TABLE students;
@@ -216,4 +217,12 @@ VALUES
 -- Practice Questions 
 ALTER TABLE student
 CHANGE name full_name VARCHAR(50); 
+
+DELETE FROM student
+WHERE marks < 80;
+
+ALTER TABLE student
+DROP COLUMN grade;
+
+SELECT * FROM student;
 

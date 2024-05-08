@@ -227,7 +227,7 @@ SELECT * FROM student;
 
 
 -- 06.) Usage of UNION, INTERSECT and MINUS keywords.
--- Intersect and minus functions not working in workbook
+-- Intersect and minus functions not working in workbench
 
 CREATE TABLE employee(
 	id INT PRIMARY KEY,
@@ -287,9 +287,11 @@ AND manager_id NOT IN (
 drop table employee;
  
  
+
+
  
- -- or
- Use class;
+-- or
+Use class;
  
 CREATE TABLE First(
 	Id INT PRIMARY KEY,

@@ -195,7 +195,7 @@ RENAME TO new_table_name;
 
 > CHANGE column (rename)  =>  
 ALTER TABLE table_name  
-CHANGE COLUMN old_name new_name new_datatype new_constraint;  
+CHANGE old_name new_name new_datatype new_constraint;  
 
 > MODIFY column (modify datatype/constraint)  =>  
 ALTER TABLE table_name  
@@ -338,7 +338,7 @@ FROM table_name
 WHERE col_name operator
 (subquery);
 
-Types of writing SubQueries --->
+Types of writing SubQueries in Subqueries --->
 - SELECT
 - FROM 
 - WHERE
