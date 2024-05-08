@@ -70,7 +70,7 @@ FROM students;
 -- Views in sql
 
 CREATE VIEW view1 AS 
-SELECT rollno, name FROM students;
+SELECT rollno, name, marks FROM students;
 
 SELECT * FROM view1;
 
