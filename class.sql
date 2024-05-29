@@ -331,6 +331,7 @@ SELECT * FROM Second;
 SELECT * FROM First   
 MINUS
 SELECT * FROM Second;  
+-- except working in the mysql command line 
 
 
 
