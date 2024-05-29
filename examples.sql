@@ -94,7 +94,7 @@ WHERE e.E_no = d.E_no and e.City = d.Location;
 ALTER TABLE employee
 ADD COLUMN Dept_No INT;
 
-SET SQL_SAFE_UPDATES(0);
+SET SQL_SAFE_UPDATES = 0;
 
 -- Adding values inside the column Dept_No
 UPDATE employee
