@@ -1,20 +1,20 @@
 # SQL
 SQL is a programming language used to interact with relational databases.
 
-It is used to perfrm CRUD operations :
+It is used to perform CRUD operations :
 Create 
 Read
 Update
 Delete
 
 ## DataTypes in SQL
-- CHAR      (string(0 - 255), can store characters of fixed length.)
+- CHAR          (string(0 - 255), can store characters of fixed length.)
 - VARCHAR       (string(0 - 255), can store characters up to given length.)
-- BLOB         (string(0 - 65535), can store binaary large digit.)
-- INT        ( integer (-2147483648 to 2147483647) )
+- BLOB          (string(0 - 65535), can store binary large digit.)
+- INT           ( integer (-2147483648 to 2147483647) )
 - TINYINT       (integer(-128 to 127))
 - BIGINT        integer()
-- BIT       (can store x-bit values. x can range from 1 to 64)
+- BIT           (can store x-bit values. x can range from 1 to 64)
 - FLOAT         (Decimal Number - with precision to 23 digits)
 - DOUBLE        (Decimal Number - with 24 to 53 digits)
 - BOOLEAN       (Boolean Values 0 or 1)
@@ -53,9 +53,9 @@ SQL Constraints are used to specify rules for data in a table.
 - FOREIGN KEY - prevent action that would destroy links between tables
 
 
-CREATE TABLE temp (
-    cust_ind INT,
-    FOREIGN KEY (cust_id) references customer(id)
+> CREATE TABLE temp (  
+    cust_ind INT,   
+    FOREIGN KEY (cust_id) references customer(id)  
 );
 
 - DEFAULT - sets the default value of a column
@@ -65,17 +65,17 @@ salary INT DEFAULT 25000
 - CHECK - It can limit the values allowed in a column.
 
 
-CREATE TABLE city (
-    id INT PRIMARY KEY,
-    city VARCHAR(50),
-    age INT,
-    CONSTRAINT age_check CHECK (AGE >= 18 AND city == "Delhi")
+> CREATE TABLE city (  
+    id INT PRIMARY KEY,  
+    city VARCHAR(50),  
+    age INT,  
+    CONSTRAINT age_check CHECK (AGE >= 18 AND city == "Delhi")  
 );
 
 OR
 
-CREATE TABLE newTab (
-    age INT CHECK (age >= 18)
+> CREATE TABLE newTab (  
+    age INT CHECK (age >= 18)  
 );
 
 
@@ -96,7 +96,8 @@ Syntax =>
 SELECT col1, col2 FROM table_name
 WHERE conditions;
 
-> SELECT * FROM student WHERE marks > 80;
+> SELECT * FROM student   
+WHERE marks > 80;
 
 
 
@@ -140,6 +141,7 @@ It collects data from multiple records and groups the result by one or more colu
 
 Generally we use group by with some aggregation function.
 
+Basic Syntax : 
 > SELECT city, COUNT(name) FROM student GROUP BY city;
 
 
@@ -168,15 +170,15 @@ ORDER BY column(s) ASC OR DESC;
 
 - Update (to update existing rows)
 
-UPDATE table_name  
-SET col1 = val1, col2 = val2
+> UPDATE table_name  
+SET col1 = val1, col2 = val2  
 WHERE condition;
 
 
 - Delete (to delete existing rows)
 
-Syntax => 
-DELETE FROM table_name
+Syntax =>   
+> DELETE FROM table_name  
 WHERE condition;
 
 - Alter (To change the schema)  
@@ -267,7 +269,7 @@ Syntax =>
 > SELECT column(s)  
 FROM tableA as alias  
 LEFT JOIN tableB as alias  
-ON tableA.col_name = tableB.col_name;
+ON tableA.col_name = tableB.col_name;  
 UNION  
 SELECT column(s)  
 FROM tableA as alias  

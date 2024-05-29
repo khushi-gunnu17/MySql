@@ -3,11 +3,11 @@
 USE college;
 
 CREATE TABLE students (
-rollno INT PRIMARY KEY, 
-name VARCHAR(50),
-marks INT NOT NULL,
-grade VARCHAR(1), 
-city VARCHAR(20)
+    rollno INT PRIMARY KEY, 
+    name VARCHAR(50),
+    marks INT NOT NULL,
+    grade VARCHAR(1), 
+    city VARCHAR(20)
 );
 
 INSERT INTO students (rollno, name , marks , grade , city) 
@@ -37,7 +37,7 @@ WHERE rollno % 2 = 0;
 
 
 -- Find the max marks from the students of Delhi
-SELECT max(marks)
+SELECT MAX(marks)
 FROM 
 (SELECT * FROM students 
 WHERE city = "Delhi") AS temp;
@@ -51,7 +51,7 @@ WHERE city = "Delhi";
 
 
 -- with select 
-SELECT (SELECT MAX(marks) FROM students) as maxMarks , name 
+SELECT DISTINCT(SELECT MAX(marks) FROM students) as maxMarks
 FROM students;
 
 
